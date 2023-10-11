@@ -5,8 +5,8 @@ import cdsapi
 
 c = cdsapi.Client()
 
-start_year = str(input("start of the year: "))
-end_year = str(input("end of the year: "))
+start_year = str(input("start of the year (YYYY): "))
+end_year = str(input("end of the year (YYYY): "))
 
 strt_yr = int(start_year)
 end_yr  = int(end_year)
