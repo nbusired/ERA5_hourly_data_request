@@ -5,11 +5,13 @@ import cdsapi
 
 c = cdsapi.Client()
 
-start_year = str(input("start of the year (YYYY): "))
-end_year = str(input("end of the year (YYYY): "))
+start_year = input("start of the year (YYYY): ")
+end_year = input("end of the year (YYYY): ")
 
 strt_yr = int(start_year)
 end_yr  = int(end_year)
+
+N,W,S,E = input("Enter the subregion in this format (N W S E): ").split()
 
 for yr in range(strt_yr,end_yr+1,1):
     for mon in range(1,13,2):
@@ -48,6 +50,9 @@ for yr in range(strt_yr,end_yr+1,1):
                      '21:00', '22:00', '23:00',
                    ],
                    'format': 'netcdf',
+                   'area': [
+                       N, W, S, E,
+                    ]
                },
-                "_".join([str(yr),str(mon)])+'-'+"_".join([str(mon+1),"uv_components"])+".nc")
+                "_".join([str(yr),str(mon)])+'-'+"_".join([str(mon+1),"ERA5_data"])+".nc")
 
